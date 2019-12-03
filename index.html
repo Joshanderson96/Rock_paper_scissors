@@ -8,9 +8,19 @@
 </head>
 <body>
     <script>
-        // function computerPlay() {
+        function computerPlay() {
+            // Generate a random number
+            let num = Math.floor((Math.random() * 3) + 1);
+            // Assign number to each option
 
-        // }
+            if(num === 1) {
+                return 'rock'
+            } else if (num === 2) {
+                return 'scissors'
+            } else {
+                return 'paper'
+            }
+        }
 
         function playGame(playerSelection, computerSelection) {
             playerSelection.value = playerSelection.toLowerCase()
@@ -22,9 +32,9 @@
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
                     return `You Lose!. ${computerSelection} beats ${playerSelection}`
 
-            } else if (computerselection === 'rock' && playerSelection === 'paper' || 
-                computerselection === 'scissors' && playerSelection === 'rock' ||
-                computerselection === 'paper' && playerSelection === 'scissors') {
+            } else if (computerSelection === 'rock' && playerSelection === 'paper' || 
+                computerSelection === 'scissors' && playerSelection === 'rock' ||
+                computerSelection === 'paper' && playerSelection === 'scissors') {
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
                     return `You win! ${playerSelection} beats ${computerSelection}`
@@ -35,7 +45,7 @@
         }
 
         const playerSelection = 'rock';
-        const computerSelection = 'paper'
+        const computerSelection = computerPlay()
         console.log(playGame(playerSelection, computerSelection))
     </script>
 </body>
