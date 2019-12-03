@@ -25,9 +25,12 @@
             } else if (computerselection === 'rock' && playerSelection === 'paper' || 
                 computerselection === 'scissors' && playerSelection === 'rock' ||
                 computerselection === 'paper' && playerSelection === 'scissors') {
-                    
-                    return `You win `
+                    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                    return `You win! ${playerSelection} beats ${computerSelection}`
 
+            } else {
+                return 'Its a draw!'
             }
         }
 
