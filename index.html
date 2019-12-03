@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function computerPlay() {
+
+        // }
+
+        function playGame(playerSelection, computerSelection) {
+            playerSelection.value = playerSelection.toLowerCase()
+            
+            if(playerSelection === 'rock' && computerSelection === 'paper' || 
+                playerSelection === 'scissors' && computerSelection === 'rock' ||
+                playerSelection === 'paper' && computerSelection === 'scissors') {
+                    computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
+                    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                    return `You Lose!. ${computerSelection} beats ${playerSelection}`
+
+            } else if (computerselection === 'rock' && playerSelection === 'paper' || 
+                computerselection === 'scissors' && playerSelection === 'rock' ||
+                computerselection === 'paper' && playerSelection === 'scissors') {
+                    
+                    return `You win `
+
+            }
+        }
+
+        const playerSelection = 'rock';
+        const computerSelection = 'paper'
+        console.log(playGame(playerSelection, computerSelection))
+    </script>
+</body>
+</html>
