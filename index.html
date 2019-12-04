@@ -57,7 +57,7 @@
 
             while(games <= 5) { 
                 games++;
-                const playerSelection = 'rock';
+                const playerSelection = prompt("Please type Rock, Paper, or Scissors");
                 const computerSelection = computerPlay();
                 console.log(playGame(computerSelection, playerSelection));
             }            
