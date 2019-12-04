@@ -21,32 +21,52 @@
                 return 'paper'
             }
         }
+        let playerScore = 0;
+        let computerScore = 0;
 
         function playGame(playerSelection, computerSelection) {
-            playerSelection.value = playerSelection.toLowerCase()
+            playerSelection.value = playerSelection.toLowerCase();
+            
             
             if(playerSelection === 'rock' && computerSelection === 'paper' || 
                 playerSelection === 'scissors' && computerSelection === 'rock' ||
                 playerSelection === 'paper' && computerSelection === 'scissors') {
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                    computerScore++;
                     return `You Lose!. ${computerSelection} beats ${playerSelection}`
+                    
 
             } else if (computerSelection === 'rock' && playerSelection === 'paper' || 
                 computerSelection === 'scissors' && playerSelection === 'rock' ||
                 computerSelection === 'paper' && playerSelection === 'scissors') {
                     computerSelection = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1)
                     playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+                    playerScore++;
                     return `You win! ${playerSelection} beats ${computerSelection}`
-
+                    
             } else {
                 return 'Its a draw!'
             }
+
+            
         }
 
-        const playerSelection = 'rock';
-        const computerSelection = computerPlay()
-        console.log(playGame(playerSelection, computerSelection))
+        function game() {
+            let games = 1;
+
+            while(games <= 5) { 
+                games++;
+                const playerSelection = 'rock';
+                const computerSelection = computerPlay();
+                console.log(playGame(computerSelection, playerSelection));
+            }            
+            console.log(`You ${playerScore} - ${computerScore} Computer`);
+        }
+
+        
+
+        game();
     </script>
 </body>
 </html>
